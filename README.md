@@ -5,8 +5,11 @@ chia_node_conn ver.1.5.e release: 260520
 by MONTECH
 
 About
+
 All node to be catch up on https://chia.keva.app/
+
 *** Completability on Windows 10 ***
+
 1. [chia_node_conn] is python lite programe, no GUI, no CLI, no Brain!! meaning not matter to use it. ^^
 2. Easy to use it just Double-Click on file (chia_node_conn.py).
 3. Result will put on clipboard for fast putting in PowerShell manually.
@@ -22,6 +25,7 @@ User manual
 6. Do again while IP Node Address change on that website update. ^^
 
 Caution
+
 **Please update via github to daily fresh programe for happy serve happy doughnut.
 
 Support me to donate at
@@ -31,5 +35,7 @@ CHIA: xch1ek3yvx9yyspgdwh60hf3q09xjdh9xaqkrfm5tm69cu5j4y6exw0qd8alxr
 BSC: 0xd816E919AA8A93d84B337D137301eF27ead44f42
 
 Contact me
+
 email: mondaro23@gmail.com
+
 website: agoodmany.world
