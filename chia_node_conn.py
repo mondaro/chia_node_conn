@@ -1,4 +1,4 @@
-#[MONTECH][chia_node_conn][ver.1.6.a][270520]
+#[MONTECH][chia_node_conn][ver.1.6.b][280520]
 """
 Please ReadMe before!!
 support me to donate at
@@ -17,7 +17,6 @@ import pathlib
 import logging
 from tkinter import Tk
 
-HEADER_IP = []
 FILE_STORE_NODE_CMD = "chia_node_bloom.txt"
 FILE_PATH_DAEMON = "path.txt"
 TIME_SLEEP = 180
@@ -38,6 +37,7 @@ def conn_request(url):
 
 def get_node_conn():
     try:
+        HEADER_IP = []
         htmlStr = conn_request("https://chia.keva.app/").decode("utf8")
         get_IP_Addr = re.findall(r'[0-9]{1,3}[.][0-9]{1,3}[.][0-9]{1,3}[.][0-9]{1,3}', htmlStr, re.MULTILINE)
         #print(get_IP_Addr) #chk_get_ip
@@ -48,12 +48,15 @@ def get_node_conn():
         #print(HEADER_IP) #chk_append_cmd
         # Make file completed node list
         try:          
-            with open(FILE_STORE_NODE_CMD,"w") as f:
+            with open(FILE_STORE_NODE_CMD,'r+') as file_store:
+                data = file_store.read()
+                file_store.seek(0)
                 for i in HEADER_IP:
-                    f.write(i + "\n")
-            f.close()
+                    file_store.write(i + "\n")
+                file_store.truncate()
+                file_store.close()
             # Copy all text command to clipboard
-            with open(FILE_STORE_NODE_CMD,"r+") as clp_node:
+            with open(FILE_STORE_NODE_CMD,'r') as clp_node:
                 clp_node_txt = clp_node.read()         
                 root = Tk()
                 root.withdraw()
@@ -66,6 +69,7 @@ def get_node_conn():
             # Open node command list as text file
             #webbrowser.open("chia_node_bloom.txt")
             print(synctime()," [chia_node_conn] Create node file completed.")
+            
         except:
             print(synctime()," [chia_node_conn] **Error** create file!!!")  
     except:
@@ -73,12 +77,12 @@ def get_node_conn():
 
 def do_action_powershell():
     try:
-        with open(FILE_PATH_DAEMON,"r") as path_chia_deamon:
+        with open(FILE_PATH_DAEMON,'r') as path_chia_deamon:
             path = path_chia_deamon.read()
             #print(path)
             path = path.replace("\\","/")
             path_chia_deamon.close
-            with open(FILE_PATH_DAEMON,"w") as optimal_path:
+            with open(FILE_PATH_DAEMON,'w+') as optimal_path:
                 #print(path)
                 optimal_path.write(path)
             root = Tk()
@@ -87,8 +91,8 @@ def do_action_powershell():
             root.clipboard_clear()
             root.clipboard_append(data)
             root.update()
-            print(data.split('\n'))
-            os.system('start /D "'+ path +'" powershell -NoExit -Command ' + data)
+            #print(data)
+            os.system('start /D "'+ path +'" powershell')
             print(synctime()," [chia_node_conn]  UPDATE node completed.")
         optimal_path.close
     except:

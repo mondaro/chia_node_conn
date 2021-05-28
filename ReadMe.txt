@@ -1,4 +1,4 @@
-chia_node_conn ver.1.6.a release: 212705
+chia_node_conn ver.1.6.b release: 212805
 by MONTECH
 
 About
