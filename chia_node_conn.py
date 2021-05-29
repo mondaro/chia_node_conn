@@ -34,16 +34,20 @@ try:
     get_node_conn()
     do_action_powershell()
     time.sleep(10)
+    a = 0
     while True:
         try:
             currentHash = hashlib.sha224(conn_request("https://chia.keva.app/")).hexdigest()
             time.sleep(TIME_SLEEP)
             newHash = hashlib.sha224(conn_request("https://chia.keva.app/")).hexdigest()
             if newHash == currentHash:
-                print(synctime()," [Hosting] IP node as a whole remains the same")
+                if a == 0:
+                    print(synctime()," [Hosting] IP node as a whole remains the same")
+                    a = 1
                 continue
             else:
                 # notify
+                a = 0
                 print(synctime()," [Hosting] IP Node was changed")
                 get_node_conn()
                 time.sleep(10)

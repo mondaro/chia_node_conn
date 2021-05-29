@@ -8,6 +8,7 @@ import os
 import sys, subprocess
 import pathlib
 from tkinter import Tk
+import pyperclip
 
 FILE_STORE_NODE_CMD = "chia_node_bloom.txt"
 FILE_PATH_DAEMON = "path.txt"
@@ -27,12 +28,11 @@ def get_node_conn():
         
         for lines in get_IP_Addr:
             mask_data = lines.split(',')
-            HEADER_IP.append('./chia show -a ' + mask_data[0]+':8444')
-            
+            HEADER_IP.append('./chia show -a ' + mask_data[0]+':8444')  
         try:          
             with open(FILE_STORE_NODE_CMD,'w') as file_store:
                 for i in HEADER_IP:
-                    file_store.write(i + "\n")
+                    file_store.write(i + '\n')
                 file_store.truncate()
                 file_store.close()
                 print(synctime()," [chia_node_conn] Create node file completed.")
@@ -56,14 +56,13 @@ def do_action_powershell():
         try:
             with open(FILE_STORE_NODE_CMD,'r') as clp_node:
                 clp_node_txt = clp_node.read()
-                root = Tk()
-                root.withdraw()
-                root.clipboard_clear()
-                root.clipboard_append(clp_node_txt)
-                root.update()
                 clp_node.close()
-        
-            os.system('start /D "'+ path +'" powershell Get-Clipboard')
+                pyperclip.copy(clp_node_txt)
+
+            #----FIX HERE ----  
+            os.system('start /D "'+ path +'" powershell')
+            #os.system("start /D C:\\Users\\uppat\\AppData\\Local\\chia-blockchain\\app-1.1.6\\resources\\app.asar.unpacked\\daemon powershell")
+            #os.system('start /D "'+ path +'" powershell Get-Clipboard -Raw')
             
             print(synctime()," [chia_node_conn]  UPDATE node completed.")
             print(synctime()," [Hosting]-[chia.keve.app] syncing...")
