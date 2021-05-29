@@ -1,4 +1,4 @@
-chia_node_conn ver.1.6.a release: 212705
+chia_node_conn ver.1.7.b release: 212905
 by MONTECH
 
 About
@@ -13,13 +13,14 @@ User manual
 1. Edit path of chia-deamon on file (path.txt) 
 Ex. C:\Users\{username}\AppData\Local\chia-blockchain\{app-version}\resources\app.asar.unpacked\daemon 
 and so no kind of backslash for now programme will automatic edit or neither khow your path just look on PowerShell shortcut in folder.
-2. Right-Click on chia_node_conn.py and click Edit with IDLE select your python editor.
-3. Run module or press [F5]
-4. Shell dialog will show soon whom action.
-5. For now manually to Right-Click for paste command on PowerShell to add all node.Soon will fix it to automatic add all it.
+2. Put all file [chia_node_conn.py, inc_module.py, path.txt] in chia deamon folder.
+3. Right-Click on chia deamon folder and Press hold [Shift] + Right-Click and select Open PowerShell window here.
+4. Type [chia_node_conn.py] and Enter.
+5. Shell dialog will show soon whom action.
+6. For now programme will automatic to set add node on PowerShell.
 
 Caution
-**Please update via github to daily fresh programe for happy serve happy doughnut.
+**Please update via github to daily fresh programe for happy serve happy meal.
 
 Support me to donate at
 CHIA: xch1ek3yvx9yyspgdwh60hf3q09xjdh9xaqkrfm5tm69cu5j4y6exw0qd8alxr
