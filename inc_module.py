@@ -35,7 +35,7 @@ def get_node_conn():
                     file_store.write(i + '\n')
                 file_store.truncate()
                 file_store.close()
-                print(synctime()," [chia_node_conn] Create node file completed.")
+                #print(synctime()," [chia_node_conn] Create node file completed.")
         except:
             print(synctime()," [chia_node_conn] **Error** create node file!!!")  
     except:
@@ -64,7 +64,8 @@ def do_action_powershell():
             #os.system("start /D C:\\Users\\uppat\\AppData\\Local\\chia-blockchain\\app-1.1.6\\resources\\app.asar.unpacked\\daemon powershell")
             #os.system('start /D "'+ path +'" powershell Get-Clipboard -Raw')
             
-            print(synctime()," [chia_node_conn]  UPDATE node completed.")
+            #print(synctime()," [chia_node_conn]  UPDATE node completed.")
+            print(synctime()," !!![chia_node_conn]!!!  Please UPDATE node.")
             print(synctime()," [Hosting]-[chia.keve.app] syncing...")
         except:
             print(synctime()," [chia_node_conn]  **Error** PowerShell illegal execute command")

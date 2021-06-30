@@ -3,7 +3,6 @@
 Please ReadMe before!!
 support me to donate at
 CHIA: xch1ek3yvx9yyspgdwh60hf3q09xjdh9xaqkrfm5tm69cu5j4y6exw0qd8alxr
-BSC: 0xd816E919AA8A93d84B337D137301eF27ead44f42
 """
 import urllib.request
 from urllib.request import urlopen, Request
@@ -30,7 +29,6 @@ print(synctime()," [chia_node_conn] Init system.")
 try:
     print(synctime()," [chia_node_conn] running...")
     currentHash = hashlib.sha224(conn_request("https://chia.keva.app/")).hexdigest()
-    print(synctime()," [Hosting]-[chia.keve.app] syncing...")
     get_node_conn()
     do_action_powershell()
     time.sleep(10)
@@ -48,7 +46,7 @@ try:
             else:
                 # notify
                 a = 0
-                print(synctime()," [Hosting] IP Node was changed")
+                print(synctime()," ********* [Hosting] IP Node was changed")
                 get_node_conn()
                 time.sleep(10)
                 do_action_powershell()
